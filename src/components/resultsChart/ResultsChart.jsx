@@ -1,0 +1,30 @@
+import { Line, LineChart, XAxis, YAxis } from "recharts";
+
+const resultsData = [
+  { id: 1, name: "Student 1", physics: 85, chemistry: 78, math: 92 },
+  { id: 2, name: "Student 2", physics: 74, chemistry: 81, math: 88 },
+  { id: 3, name: "Student 3", physics: 90, chemistry: 85, math: 95 },
+  { id: 4, name: "Student 4", physics: 66, chemistry: 72, math: 70 },
+  { id: 5, name: "Student 5", physics: 80, chemistry: 69, math: 84 },
+  { id: 6, name: "Student 6", physics: 92, chemistry: 88, math: 91 },
+  { id: 7, name: "Student 7", physics: 58, chemistry: 64, math: 60 },
+  { id: 8, name: "Student 8", physics: 77, chemistry: 82, math: 79 },
+  { id: 9, name: "Student 9", physics: 69, chemistry: 73, math: 75 },
+  { id: 10, name: "Student 10", physics: 88, chemistry: 90, math: 94 },
+];
+
+const ResultsChart = () => {
+  return (
+    <div>
+      <LineChart width={800} height={500} data={resultsData}>
+        <XAxis dataKey={"name"}></XAxis>
+        <YAxis></YAxis>
+        <Line dataKey={"math"} stroke="red"></Line>
+        <Line dataKey={"chemistry"} stroke="green"></Line>
+        <Line dataKey={"physics"} stroke="blue"></Line>
+      </LineChart>
+    </div>
+  );
+};
+
+export default ResultsChart;
