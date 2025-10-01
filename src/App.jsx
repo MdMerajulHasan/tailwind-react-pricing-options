@@ -3,10 +3,13 @@ import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import PricingOptions from "./components/pricingOptions/PricingOptions";
 import ResultsChart from "./components/resultsChart/ResultsChart";
+import axios from "axios";
+import MarksChart from "./components/resultsChart/marksChart/MarksChart";
 // import Example from "./components/resultChart/resultsChart";
 
 
 const pricingPromise = fetch("./pricingData.json").then((res) => res.json());
+const marksPromise = axios.get('marksData.json');
 
 function App() {
   return (
@@ -30,6 +33,9 @@ function App() {
           }
         >
           <PricingOptions pricingPromise={pricingPromise}></PricingOptions>
+        </Suspense>
+        <Suspense>
+          <MarksChart marksPromise={marksPromise}></MarksChart>
         </Suspense>
         <div className="w-[800px] h-[500px]"><ResultsChart></ResultsChart></div>
         {/* <div className="w-[800px] h-[800px]" ><Example></Example></div> */}
